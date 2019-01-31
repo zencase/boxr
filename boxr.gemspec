@@ -28,9 +28,11 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'dotenv'
   spec.add_development_dependency 'awesome_print'
   spec.add_development_dependency 'lru_redux'
+  spec.add_development_dependency 'activesupport'
 
-  spec.add_runtime_dependency 'httpclient'
-  spec.add_runtime_dependency 'hashie'
-  spec.add_runtime_dependency 'addressable'
-  spec.add_runtime_dependency 'jwt'
+  spec.add_dependency 'activesupport'
+  spec.add_dependency 'addressable'
+  spec.add_dependency 'hashie'
+  spec.add_dependency 'httpclient'
+  spec.add_dependency 'jwt'
 end
