@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '~> 2.0'
+  spec.required_ruby_version = '~> 2.4'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'bundler-audit'
@@ -28,9 +28,11 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'dotenv'
   spec.add_development_dependency 'awesome_print'
   spec.add_development_dependency 'lru_redux'
+  spec.add_development_dependency 'activesupport'
 
-  spec.add_runtime_dependency 'httpclient'
-  spec.add_runtime_dependency 'hashie'
-  spec.add_runtime_dependency 'addressable'
-  spec.add_runtime_dependency 'jwt'
+  spec.add_dependency 'activesupport'
+  spec.add_dependency 'addressable'
+  spec.add_dependency 'hashie'
+  spec.add_dependency 'httpclient'
+  spec.add_dependency 'jwt'
 end
