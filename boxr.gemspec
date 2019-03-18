@@ -1,5 +1,6 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+# frozen_string_literal: true
+
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'boxr/version'
 
@@ -9,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Chad Burnette']
   spec.email         = ['chadburnette@me.com']
   spec.summary       = 'A Ruby client library for the Box V2 Content API.'
-  spec.description   = ""
+  spec.description   = ''
   spec.homepage      = 'https://github.com/cburnette/boxr'
   spec.license       = 'MIT'
 
@@ -20,15 +21,15 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '~> 2.4'
 
+  spec.add_development_dependency 'activesupport'
+  spec.add_development_dependency 'awesome_print'
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'bundler-audit'
+  spec.add_development_dependency 'dotenv'
+  spec.add_development_dependency 'lru_redux'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'simplecov'
-  spec.add_development_dependency 'dotenv'
-  spec.add_development_dependency 'awesome_print'
-  spec.add_development_dependency 'lru_redux'
-  spec.add_development_dependency 'activesupport'
 
   spec.add_dependency 'activesupport'
   spec.add_dependency 'addressable'
