@@ -33,4 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'hashie'
   spec.add_runtime_dependency 'addressable'
   spec.add_runtime_dependency 'jwt'
+  spec.add_runtime_dependency 'activesupport'
 end
