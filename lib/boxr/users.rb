@@ -108,5 +108,43 @@ module Boxr
       result, response = delete(uri, query: query)
       result
     end
+
+    # As of writing, API only supports a root source folder (0)
+    def move_users_folder(user, source_folder = 0, destination_user)
+      user_id = ensure_id(user)
+      destination_user_id = ensure_id(destination_user)
+      source_folder_id = ensure_id(source_folder)
+      uri = "#{USERS_URI}/#{user_id}/folders/#{source_folder_id}"
+      attributes = {owned_by: {id: destination_user_id}}
+
+      folder, response = put(uri, attributes)
+      folder
+    end
+
+    def email_aliases_for_user(user)
+      user_id = ensure_id(user)
+      uri = "#{USERS_URI}/#{user_id}/email_aliases"
+
+      aliases, response = get(uri)
+      aliases['entries']
+    end
+
+    def add_email_alias_for_user(user, email)
+      user_id = ensure_id(user)
+      uri = "#{USERS_URI}/#{user_id}/email_aliases"
+      attributes = {email: email}
+
+      updated_user, response = post(uri, attributes)
+      updated_user
+    end
+
+    def remove_email_alias_for_user(user, email_alias)
+      user_id = ensure_id(user)
+      email_alias_id = ensure_id(email_alias)
+      uri = "#{USERS_URI}/#{user_id}/email_aliases/#{email_alias_id}"
+
+      result, response = delete(uri)
+      result
+    end
   end
 end

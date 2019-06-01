@@ -29,17 +29,24 @@ require 'boxr/webhook_validator'
 require 'boxr/webhooks'
 require 'boxr/watermarking'
 
-module Enumerable
+class BoxrCollection < Array
   def files
-    select { |i| i.type == 'file' }
+    collection_for_type('file')
   end
 
   def folders
-    select { |i| i.type == 'folder' }
+    collection_for_type('folder')
   end
 
   def web_links
-    select { |i| i.type == 'web_link' }
+    collection_for_type('web_link')
+  end
+
+  private
+
+  def collection_for_type(type)
+    items = select { |i| i.type == type }
+    BoxrCollection.new(items)
   end
 end
 
