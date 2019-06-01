@@ -23,6 +23,7 @@ describe Boxr::Client do
 
   BOX_SERVER_SLEEP = 5
   TEST_FOLDER_NAME = 'Boxr Test'
+  SUB_FOLDER_NAME = 'sub_folder_1'
   SUB_FOLDER_DESCRIPTION = 'This was created by the Boxr test suite'
   TEST_FILE_NAME = 'test file.txt'
   TEST_FILE_NAME_CUSTOM = 'test file custom.txt'
