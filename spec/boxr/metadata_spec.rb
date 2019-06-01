@@ -27,7 +27,7 @@ describe 'file metadata operations' do
 
   #rake spec SPEC_OPTS="-e \"invokes folder metadata operations"\"
   #NOTE: this test will fail unless you create a metadata template called 'test' with two attributes: 'a' of type text, and 'b' of type text
-  it "invokes folder metadata operations" do
+  xit "invokes folder metadata operations" do
     new_folder = BOX_CLIENT.create_folder(SUB_FOLDER_NAME, @test_folder)
 
     puts "create folder metadata"
