@@ -35,4 +35,11 @@ describe Boxr::Client do
   TEST_TASK_MESSAGE = "Please review"
   TEST_WEB_URL = 'https://www.box.com'
   TEST_WEB_URL2 = 'https://www.google.com'
+
+
+  it 'shows detailed errors' do
+    expect do
+      BOX_CLIENT.create_folder(nil, @test_folder)
+    end.to raise_error(Boxr::BoxrError, "400: Bad Request, 'name' is required")
+  end
 end
