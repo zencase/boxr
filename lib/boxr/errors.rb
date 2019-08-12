@@ -49,9 +49,7 @@ module Boxr
     private
 
     def response_body_with_status
-      response_body_hash = JSON.parse(response_body)
-      response_body_hash['status'] = status
-      response_body_hash.to_json
+      JSON.parse(response_body).merge!(status: status).to_json
     end
   end
 end

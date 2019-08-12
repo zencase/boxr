@@ -47,9 +47,10 @@ describe 'task operations' do
               expect(task_assignment.resolution_state).to eq('completed')
             }.to raise_error
 
-    puts "delete task assignment"
-    result = BOX_CLIENT.delete_task_assignment(TASK_ASSIGNMENT)
-    expect(result).to eq({})
+    #TODO: {"type":"https://api.box.com/problems","title":"Cannot delete the only assignee of a task","status":400}
+    # puts "delete task assignment"
+    # result = BOX_CLIENT.delete_task_assignment(TASK_ASSIGNMENT)
+    # expect(result).to eq({})
 
     puts "delete task"
     result = BOX_CLIENT.delete_task(TEST_TASK)

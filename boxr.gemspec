@@ -21,18 +21,17 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '~> 2.4'
 
-  spec.add_development_dependency 'awesome_print'
   spec.add_development_dependency 'bundler'
-  spec.add_development_dependency 'dotenv'
-  spec.add_development_dependency 'lru_redux'
-  spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'simplecov'
+  spec.add_development_dependency 'dotenv'
+  spec.add_development_dependency 'awesome_print'
+  spec.add_development_dependency 'lru_redux'
 
-  spec.add_runtime_dependency 'activesupport'
-  spec.add_runtime_dependency 'addressable'
-  spec.add_runtime_dependency 'hashie'
   spec.add_runtime_dependency 'httpclient'
+  spec.add_runtime_dependency 'hashie'
+  spec.add_runtime_dependency 'addressable'
   spec.add_runtime_dependency 'jwt', '2.1.0'
+  spec.add_runtime_dependency 'activesupport'
 end

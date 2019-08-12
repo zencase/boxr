@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe 'downscope tokens' do
-  it 'requests downscope tokens' do
+  #TODO: {"error":"password_reset_required","error_description":"User needs to reset password","status":400}
+  xit 'requests downscope tokens' do
     app_user_id = @test_user.id
     jwt_token = Boxr.get_user_token(app_user_id).access_token
     scopes = %w[item_upload item_preview base_explorer]
