@@ -38,12 +38,20 @@ module Boxr
       elsif @boxr_message
         @boxr_message
       else
-        "#{@status}: #{@response_body}"
+        response_body_with_status
       end
     end
 
     def to_s
       message
+    end
+
+    private
+
+    def response_body_with_status
+      response_body_hash = JSON.parse(response_body)
+      response_body_hash['status'] = status
+      response_body_hash.to_json
     end
   end
 end
