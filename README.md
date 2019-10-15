@@ -32,13 +32,6 @@ Or install it yourself as:
 
 ## Usage
 
-**Important**
-You must encode your private key and set that as your JWT_PRIVATE_KEY environment variable. To encode, open irb or a Rails console on do the following:
-```
-require 'base64'
-Base64.strict_encode64(private_key)
-```
-
 Super-fast instructions:
 
 1. go to http://developers.box.com
@@ -113,7 +106,7 @@ You can get all these keys from your application's JSON configuration file in th
 # The enterprise ID is pre-populated by the JSON configuration,
 # so you don't need to specify it here
 enterprise_token = Boxr::get_enterprise_token.access_token
-service_account_client = Boxr::Client.new(enterprise_token) 
+service_account_client = Boxr::Client.new(enterprise_token)
 
 # Get an app user client
 app_user        = service_account_client.create_user('User Name', 'some@email.com', is_platform_access_only: true))
