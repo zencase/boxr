@@ -26,7 +26,7 @@ module Boxr
     end
     alias folder folder_from_id
 
-    def folder_items(folder, fields: [], offset: nil, limit: nil)
+    def folder_items(folder, fields: [], offset: nil, limit: nil, include_meta: false)
       folder_id = ensure_id(folder)
       query = build_fields_query(fields, FOLDER_AND_FILE_FIELDS_QUERY)
       uri = "#{FOLDERS_URI}/#{folder_id}/items"
@@ -37,7 +37,7 @@ module Boxr
         query[:offset] = offset
         query[:limit] = limit
         items, response = get(uri, query: query)
-        items['entries']
+        include_meta ? items : items['entries']
       end
     end
 

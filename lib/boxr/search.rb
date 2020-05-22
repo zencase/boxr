@@ -7,7 +7,7 @@ module Boxr
                updated_at_range_from_date: nil, updated_at_range_to_date: nil,
                size_range_lower_bound_bytes: nil, size_range_upper_bound_bytes: nil,
                owner_user_ids: [], ancestor_folder_ids: [], content_types: [], trash_content: nil,
-               mdfilters: nil, type: nil, limit: 30, offset: 0)
+               mdfilters: nil, type: nil, limit: 30, offset: 0, include_meta: false)
 
       unless mdfilters.nil?
         unless mdfilters.is_a? String   # if a string is passed in assume it is already formatted correctly
@@ -46,7 +46,7 @@ module Boxr
       search_query[:offset] = offset unless offset.nil?
 
       results, response = get(SEARCH_URI, query: search_query)
-      results.entries
+      include_meta ? results : results.entries
     end
 
     private
