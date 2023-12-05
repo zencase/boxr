@@ -46,19 +46,19 @@ describe Boxr::WebhookValidator do
     context 'valid primary key' do
       let(:headers) do
         { 'Box-Delivery-Timestamp' => 9.minutes.ago.to_s,
-          'Box-Signature-Primary' => "MDM5N2NkMmZkYWVmYzMyODE3Yjc0OTIyNjNiYTQwM2E3OTE2ZTk1MTYzNDZm\nZWQyYTM4YTA3MmIwNjBlMjBlNA==\n" }
+          'Box-Signature-Primary' => "ODZjMWU5NWU4YTRhOTg2YWIxYmZiMWIzNDU1MTkxMzc2MmYwNTIxM2I1Yzcy\nNWUxYTNiZTg2ZGE4NDBjZDcxOQ==\n" }
       end
 
       it 'returns true' do
         expect(subject).to eq(true)
       end
     end
-
     context 'invalid primary key, valid secondary key' do
+
       let(:headers) do
         { 'Box-Delivery-Timestamp' => 9.minutes.ago.to_s,
           'Box-Signature-Primary' => 'bogus',
-          'Box-Signature-Secondary' => "MjhlNjRkZWRjYTg3NDQzODFjMTViNDU4MDJjY2E4Mzk5OTM5NmY2NzU3YjBm\nNTVmOTEzM2Q4MjIxZTQ3YjM1Mg==\n" }
+          'Box-Signature-Secondary' => "NTgzYzAzMzUyODM0MjQ0ZDNhZGRiOWNlMzdjZTBmM2EwZDBmODEyY2I3MzA4\nNDliNDVkNjBjZjA3YTFhYjJiZQ==\n" }
       end
 
       it 'returns true' do

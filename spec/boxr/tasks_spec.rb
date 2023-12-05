@@ -38,14 +38,13 @@ describe 'task operations' do
     expect(task_assignments.count).to eq(1)
     expect(task_assignments[0].id).to eq(TASK_ASSIGNMENT.id)
 
-    #TODO: can't do this test yet because the test user needs to confirm their email address before you can do this
     puts "update task assignment"
-    expect {
-              box_client_as_test_user = Boxr::Client.new(ENV['BOX_DEVELOPER_TOKEN'], as_user_id: @test_user.id)
-              new_message = "Updated task message"
-              task_assignment = box_client_as_test_user.update_task_assignment(TEST_TASK, resolution_state: :completed)
-              expect(task_assignment.resolution_state).to eq('completed')
-            }.to raise_error
+    expect do
+      box_client_as_test_user = Boxr::Client.new(ENV['BOX_DEVELOPER_TOKEN'], as_user: @test_user.id)
+      new_message = "Updated task message"
+      task_assignment = box_client_as_test_user.update_task_assignment(TEST_TASK, resolution_state: :completed)
+      expect(task_assignment.resolution_state).to eq('completed')
+    end.to raise_error(Boxr::BoxrError)
 
     #TODO: {"type":"https://api.box.com/problems","title":"Cannot delete the only assignee of a task","status":400}
     # puts "delete task assignment"

@@ -32,6 +32,9 @@ describe 'collaborations operations' do
     expect(pending_collaborations).to eq([])
 
     puts "add invalid collaboration"
-    expect { BOX_CLIENT.add_collaboration(@test_folder, {id: @test_user.id, type: :user}, :invalid_role)}.to raise_error
+
+    expect do
+      BOX_CLIENT.add_collaboration(@test_folder, {id: @test_user.id, type: :user}, :invalid_role)
+    end.to raise_error(Boxr::BoxrError)
   end
 end
